@@ -983,6 +983,9 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  /* Turquoise edge on every article card, on the home preview and /news alike.
+     The gold :hover border from .card still takes over on pointer. */
+  border-color: var(--turquoise-500);
 }
 
 .post-card__media {
