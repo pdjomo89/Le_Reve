@@ -138,10 +138,10 @@ export const TESTIMONIALS = [
 
 export const TEAM = [
   {
-    name: "Camille Ortega",
-    photo: "team-camille",
+    name: "Fonda Kwocha",
+    photo: "team-fonda",
     role: "Founder & Principal Planner",
-    bio: "Five years and two hundred weddings in the Sonoran desert. Camille built Le Rêve after a decade running events for resort properties across Scottsdale.",
+    bio: "Five years and two hundred weddings in the Sonoran desert. Fonda built Le Rêve after a decade running events for resort properties across Scottsdale.",
   },
   {
     name: "Noor Haddad",
@@ -258,7 +258,7 @@ export const NEWS = [
     body: [
       "Southern Arizona has quietly become a third of our calendar. Hacienda estates, historic missions and saguaro-forest ranches are drawing couples who want warmth without a resort footprint.",
       "The new studio sits just off Broadway in the Sam Hughes neighborhood and opens for consultations in August 2026. It gives our Tucson couples the same sample tablescape and design-book sessions our Scottsdale clients have had for years.",
-      "Tessa continues to lead northern Arizona from Sedona, and Camille will split her weeks between both studios through the end of the year.",
+      "Tessa continues to lead northern Arizona from Sedona, and Fonda will split her weeks between both studios through the end of the year.",
     ],
   },
   {

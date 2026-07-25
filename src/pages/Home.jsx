@@ -132,7 +132,11 @@ function ServicesPreview() {
         <div className="svc-preview">
           {SERVICES.slice(0, 3).map((s, i) => (
             <Reveal key={s.slug} delay={i * 110}>
-              <article className={`card svc-card${s.featured ? " svc-card--featured" : ""}`}>
+              <article
+                className={`card svc-card${s.featured ? " svc-card--featured" : ""}${
+                  i < 2 ? " svc-card--accent" : ""
+                }`}
+              >
                 {s.featured && <span className="svc-card__badge">Most chosen</span>}
                 <div className="svc-card__body">
                   <h3>{s.name}</h3>

@@ -209,13 +209,13 @@ const PHOTOS = [
      being addressable by slug. These are stock photographs of real people who
      do not work here; see brand/CREDITS.md. Replace before launch. */
   {
-    slug: "team-camille",
+    slug: "team-fonda",
     category: "Team",
     ratio: 1,
     hidden: true,
-    caption: "Camille Ortega",
+    caption: "Fonda Kwocha",
     location: "Scottsdale studio",
-    alt: "Portrait of Camille Ortega, founder and principal planner",
+    alt: "Portrait of Fonda Kwocha, founder and principal planner",
   },
   {
     slug: "team-noor",

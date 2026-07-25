@@ -99,7 +99,7 @@ function Success({ form, booking, onReset }) {
       </h2>
       <p className="lede">
         {when
-          ? `Your consultation is confirmed for ${when}. It's in Camille's diary and a calendar invitation is on its way to ${form.email}.`
+          ? `Your consultation is confirmed for ${when}. It's in Fonda's diary and a calendar invitation is on its way to ${form.email}.`
           : `Your consultation is booked. Confirmation and calendar invitation are on their way to ${form.email}.`}
       </p>
       <div className="consult-success__recap">
@@ -230,7 +230,7 @@ export default function Consultation() {
                   <div className="consult__form consult__step--calendar">
                     <h2>Choose a time that suits</h2>
                     <p className="consult__cal-lede">
-                      Every time shown is genuinely free in Camille's diary. Book one and it's
+                      Every time shown is genuinely free in Fonda's diary. Book one and it's
                       blocked for everyone else immediately.
                     </p>
                     <BookingCalendar intake={form} onBooked={handleBooked} />

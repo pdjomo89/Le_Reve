@@ -35,7 +35,7 @@ export default function About() {
               It started with one <em className="script">very bad</em> wedding
             </h2>
             <p>
-              In 2020 Camille watched a couple's outdoor Scottsdale ceremony collapse in a
+              In 2020 Fonda watched a couple's outdoor Scottsdale ceremony collapse in a
               108° June afternoon — no shade, no water, no plan. The vendors were excellent.
               The planning simply had not accounted for where it was happening.
             </p>

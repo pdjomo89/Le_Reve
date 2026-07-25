@@ -602,6 +602,12 @@
   display: flex;
 }
 
+/* The two non-featured packages take a turquoise edge so all three cards read
+   as a deliberate set rather than one highlighted and two plain. */
+.svc-card--accent {
+  border-color: var(--turquoise-500);
+}
+
 .svc-card--featured {
   border-color: var(--gold-500);
   box-shadow: 0 18px 50px -26px rgba(192, 152, 72, 0.7);
@@ -2481,7 +2487,7 @@
 
 .reviews__form {
   background: var(--white);
-  border: 1px solid var(--line);
+  border: 1px solid var(--turquoise-500);
   border-radius: var(--radius);
   padding: clamp(1.6rem, 4vw, 2.4rem);
   box-shadow: var(--shadow-sm);

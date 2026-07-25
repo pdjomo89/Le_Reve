@@ -135,8 +135,13 @@ export default function Reviews() {
                   <p className="review-card__body">{r.body}</p>
                   <p className="review-card__meta">
                     <strong>{r.name}</strong>
-                    {r.event_detail ? ` · ${r.event_detail}` : ""}
-                    {r.created_at ? ` · ${formatMonth(r.created_at)}` : ""}
+                    {/* The venue line usually carries its own date, so only fall
+                        back to the submission month when it doesn't. */}
+                    {r.event_detail
+                      ? ` · ${r.event_detail}`
+                      : r.created_at
+                        ? ` · ${formatMonth(r.created_at)}`
+                        : ""}
                   </p>
                 </Reveal>
               ))}
