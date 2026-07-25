@@ -1,0 +1,458 @@
+/* ============================================================
+   Le Rêve — design tokens & global styles
+   Palette: turquoise + gold on warm ivory
+   ============================================================ */
+
+:root {
+  /* Brand — the 500 steps are sampled straight out of the logo artwork
+     (script turquoise #18a8a8, wreath gold #c09848) and the rest of each
+     ramp is built around them, so the mark never fights the interface. */
+  --turquoise-900: #063636;
+  --turquoise-800: #0a4e4e;
+  --turquoise-700: #0e7070;
+  --turquoise-600: #128f8f;
+  --turquoise-500: #18a8a8;
+  --turquoise-400: #4cc4c0;
+  --turquoise-200: #a8e4e0;
+  --turquoise-100: #dcf3f1;
+
+  --gold-700: #806229;
+  --gold-600: #9e7c33;
+  --gold-500: #c09848;
+  --gold-400: #d2b06a;
+  --gold-300: #e2c894;
+  --gold-100: #f5ecd8;
+
+  /* Neutrals */
+  --ivory: #fbf8f3;
+  --ivory-deep: #f4eee4;
+  --ink: #10262b;
+  --ink-soft: #3d5257;
+  --muted: #7b8b8e;
+  --line: rgba(16, 38, 43, 0.12);
+  --white: #ffffff;
+
+  /* Semantic */
+  --bg: var(--ivory);
+  --surface: var(--white);
+  --text: var(--ink);
+  --text-soft: var(--ink-soft);
+
+  /* Type */
+  --font-display: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --font-body: "Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+
+  /* Shape & motion */
+  --radius-sm: 4px;
+  --radius: 10px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 2px rgba(6, 54, 54, 0.06), 0 4px 14px rgba(6, 54, 54, 0.06);
+  --shadow: 0 12px 40px -12px rgba(6, 54, 54, 0.22);
+  --shadow-lg: 0 30px 70px -24px rgba(6, 54, 54, 0.35);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Tall enough for the wreath mark to read at a glance. */
+  --nav-h: 108px;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --nav-h: 88px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  /* Soft brand-toned wash — turquoise and gold tints bleeding into the warm
+     ivory base, fixed so it stays put behind every page as you scroll. */
+  background:
+    radial-gradient(120% 80% at 12% 0%, var(--turquoise-100), transparent 55%),
+    radial-gradient(120% 80% at 100% 100%, var(--gold-100), transparent 55%),
+    var(--bg);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16.5px;
+  font-weight: 300;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.4em;
+}
+
+h1 {
+  font-size: clamp(2.9rem, 7vw, 5.4rem);
+}
+h2 {
+  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+}
+h3 {
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+}
+
+p {
+  margin: 0 0 1.1em;
+  color: var(--text-soft);
+}
+
+::selection {
+  background: var(--turquoise-200);
+  color: var(--turquoise-900);
+}
+
+:focus-visible {
+  outline: 2px solid var(--turquoise-500);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Layout primitives ---------- */
+
+.container {
+  width: min(1180px, 100% - 3rem);
+  margin-inline: auto;
+}
+
+.container--narrow {
+  width: min(820px, 100% - 3rem);
+}
+
+.section {
+  padding: clamp(4.5rem, 9vw, 8.5rem) 0;
+}
+
+.section--tint {
+  background: var(--ivory-deep);
+}
+
+.section--ink {
+  background: var(--turquoise-900);
+  color: var(--ivory);
+}
+.section--ink p {
+  color: rgba(251, 248, 243, 0.72);
+}
+
+/* ---------- Text utilities ---------- */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-600);
+  margin-bottom: 1.1rem;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+.section--ink .eyebrow {
+  color: var(--gold-400);
+}
+
+.lede {
+  font-size: 1.12rem;
+  color: var(--text-soft);
+  max-width: 62ch;
+}
+
+.script {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-center .eyebrow {
+  justify-content: center;
+}
+
+.text-center .eyebrow::after {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+.text-center .lede {
+  margin-inline: auto;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 1.05rem 2.1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition:
+    transform 0.4s var(--ease),
+    background-color 0.35s var(--ease),
+    color 0.35s var(--ease),
+    border-color 0.35s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--primary {
+  background: var(--turquoise-700);
+  color: var(--ivory);
+  box-shadow: var(--shadow-sm);
+}
+.btn--primary:hover {
+  background: var(--turquoise-800);
+  box-shadow: var(--shadow);
+}
+
+.btn--gold {
+  background: var(--gold-500);
+  color: var(--turquoise-900);
+}
+.btn--gold:hover {
+  background: var(--gold-400);
+  box-shadow: 0 14px 34px -12px rgba(192, 152, 72, 0.65);
+}
+
+.btn--ghost {
+  border-color: currentColor;
+  color: var(--turquoise-800);
+  background: transparent;
+}
+.btn--ghost:hover {
+  background: var(--turquoise-800);
+  border-color: var(--turquoise-800);
+  color: var(--ivory);
+}
+
+.section--ink .btn--ghost,
+.hero .btn--ghost {
+  color: var(--gold-300);
+}
+.section--ink .btn--ghost:hover,
+.hero .btn--ghost:hover {
+  background: var(--gold-500);
+  border-color: var(--gold-500);
+  color: var(--turquoise-900);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Text link with animated gold underline */
+.link-underline {
+  position: relative;
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--turquoise-700);
+  padding-bottom: 4px;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gold-500);
+  transform: scaleX(0.28);
+  transform-origin: left;
+  transition: transform 0.45s var(--ease);
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* ---------- Cards & media ---------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition:
+    transform 0.5s var(--ease),
+    box-shadow 0.5s var(--ease),
+    border-color 0.5s var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-color: rgba(192, 152, 72, 0.5);
+}
+
+/* Image frame — the gradient shows through if a photo is slow or unavailable */
+.frame {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 100% at 20% 0%, var(--turquoise-200), transparent 60%),
+    linear-gradient(150deg, var(--turquoise-700), var(--turquoise-900) 55%, var(--gold-700));
+}
+
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s var(--ease);
+}
+
+.frame--zoom:hover img {
+  transform: scale(1.06);
+}
+
+/* ---------- Reveal on scroll ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.9s var(--ease),
+    transform 0.9s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Forms ---------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.field label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--turquoise-800);
+}
+
+.field input,
+.field select,
+.field textarea {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1rem;
+  transition:
+    border-color 0.3s var(--ease),
+    box-shadow 0.3s var(--ease);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--turquoise-500);
+  box-shadow: 0 0 0 3px var(--turquoise-100);
+}
+
+.field input[aria-invalid="true"],
+.field textarea[aria-invalid="true"],
+.field select[aria-invalid="true"] {
+  border-color: #b4442f;
+  box-shadow: 0 0 0 3px rgba(180, 68, 47, 0.12);
+}
+
+.field-error {
+  font-size: 0.78rem;
+  color: #a53d2a;
+}
