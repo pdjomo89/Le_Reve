@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 .vercel
 .env*
+
+# Agent skills installed by the Neon Marketplace integration (local tooling)
+.agents/
+.claude/
+skills-lock.json

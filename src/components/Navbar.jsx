@@ -8,6 +8,7 @@ const LINKS = [
   { to: "/gallery", label: "Gallery" },
   { to: "/about", label: "About" },
   { to: "/news", label: "Journal" },
+  { to: "/reviews", label: "Reviews" },
 ];
 
 export default function Navbar() {

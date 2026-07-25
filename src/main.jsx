@@ -10,6 +10,8 @@ import Gallery from "./pages/Gallery.jsx";
 import News from "./pages/News.jsx";
 import Article from "./pages/Article.jsx";
 import Consultation from "./pages/Consultation.jsx";
+import Reviews from "./pages/Reviews.jsx";
+import AdminReviews from "./pages/AdminReviews.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 import "./index.css";
@@ -28,6 +30,8 @@ const router = createBrowserRouter([
       { path: "news", element: <News /> },
       { path: "news/:slug", element: <Article /> },
       { path: "consultation", element: <Consultation /> },
+      { path: "reviews", element: <Reviews /> },
+      { path: "admin/reviews", element: <AdminReviews /> },
       { path: "*", element: <NotFound /> },
     ],
   },

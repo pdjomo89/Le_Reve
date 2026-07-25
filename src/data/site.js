@@ -109,8 +109,8 @@ export const PROCESS = [
 ];
 
 export const STATS = [
-  { value: "410+", label: "Weddings produced" },
-  { value: "14", label: "Years in Arizona" },
+  { value: "210+", label: "Weddings produced" },
+  { value: "5", label: "Years in Arizona" },
   { value: "60+", label: "Venue partners" },
   { value: "4.9", label: "Average client rating" },
 ];
@@ -141,7 +141,7 @@ export const TEAM = [
     name: "Camille Ortega",
     photo: "team-camille",
     role: "Founder & Principal Planner",
-    bio: "Fourteen years and four hundred weddings in the Sonoran desert. Camille built Le Rêve after a decade running events for resort properties across Scottsdale.",
+    bio: "Five years and two hundred weddings in the Sonoran desert. Camille built Le Rêve after a decade running events for resort properties across Scottsdale.",
   },
   {
     name: "Noor Haddad",

@@ -14,9 +14,9 @@ export default function About() {
       <PageHeader
         photo="long-table-dusk"
         eyebrow="About the studio"
-        title="Fourteen years of"
+        title="Five years of"
         accent="Arizona weddings"
-        lede="Le Rêve began in a one-room Scottsdale studio in 2012 with a single rule we still hold to: never take more weddings than we can personally stand behind."
+        lede="Le Rêve began in a one-room Scottsdale studio in 2021 with a single rule we still hold to: never take more weddings than we can personally stand behind."
       />
 
       <section className="section">
@@ -24,7 +24,7 @@ export default function About() {
           <Reveal className="about__story-art">
             <Photo slug="bride-bouquet-stone" size="lg" className="about__portrait" />
             <div className="about__caption">
-              <span className="script">Fourteen years in the desert</span>
+              <span className="script">Five years in the desert</span>
               <span>Scottsdale · Sedona · Tucson</span>
             </div>
           </Reveal>
@@ -35,7 +35,7 @@ export default function About() {
               It started with one <em className="script">very bad</em> wedding
             </h2>
             <p>
-              In 2011 Camille watched a couple's outdoor Scottsdale ceremony collapse in a
+              In 2020 Camille watched a couple's outdoor Scottsdale ceremony collapse in a
               108° June afternoon — no shade, no water, no plan. The vendors were excellent.
               The planning simply had not accounted for where it was happening.
             </p>

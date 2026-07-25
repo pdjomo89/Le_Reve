@@ -36,9 +36,7 @@ function Hero() {
       <div className="container hero__inner">
         <span className="eyebrow hero__eyebrow">Phoenix · Scottsdale · Sedona · Tucson</span>
         <h1 className="hero__title">
-          Weddings worthy of
-          <br />
-          <em className="script hero__accent">the desert</em>
+          Weddings worthy of <em className="script hero__accent">the desert</em>
         </h1>
         <p className="hero__lede">
           Le Rêve is a full-service wedding planning and design studio producing extraordinary
@@ -54,8 +52,8 @@ function Hero() {
         </div>
 
         <ul className="hero__marks">
-          <li>14 years in Arizona</li>
-          <li>410+ weddings</li>
+          <li>5 years in Arizona</li>
+          <li>210+ weddings</li>
           <li>22 dates a year</li>
         </ul>
       </div>
@@ -82,7 +80,7 @@ function Intro() {
             no photographer anywhere else can buy.
           </p>
           <p>
-            We have spent fourteen years learning how to build a wedding that works with all of
+            We have spent five years learning how to build a wedding that works with all of
             it — shade plans and backup builds written into the first draft, vendors who have
             loaded in at that venue thirty times, and a design language drawn from the desert
             rather than imported onto it.
