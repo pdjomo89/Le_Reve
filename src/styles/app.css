@@ -690,11 +690,12 @@
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.05rem 1.4rem;
-  border: 1px solid var(--line);
+  padding: 1.35rem 1.7rem;
+  border: 2px solid var(--turquoise-500);
   border-radius: var(--radius-sm);
   background: var(--white);
-  font-size: 0.86rem;
+  box-shadow: var(--shadow-sm);
+  font-size: 0.98rem;
   letter-spacing: 0.04em;
   transition:
     border-color 0.35s var(--ease),
@@ -702,15 +703,24 @@
     transform 0.35s var(--ease);
 }
 
+/* The package name carried the body's light grey, which read as secondary
+   against the price. Give it the full ink and a little weight. */
+.svc-index__pill > span:first-child {
+  color: var(--ink);
+  font-weight: 500;
+}
+
 .svc-index__pill:hover {
   border-color: var(--gold-500);
   background: var(--gold-100);
-  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
 }
 
 .svc-index__price {
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--gold-600);
   white-space: nowrap;
