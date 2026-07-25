@@ -6,12 +6,18 @@
 export const BRAND = {
   name: "Le Rêve",
   tagline: "Arizona Wedding Planning & Design",
-  phone: "(602) 555-0147",
-  phoneHref: "tel:+16025550147",
+  phone: "(385) 313-2344",
+  phoneHref: "tel:+13853132344",
   email: "hello@lereveweddings.com",
   studio: "7014 E Camelback Rd, Suite 210 · Scottsdale, AZ 85251",
   hours: "Tuesday – Saturday, 9am – 6pm MST",
   instagram: "@lereve.az",
+  /**
+   * Cal.com booking link, in "<username>/<event-type>" form — the tail of your
+   * public cal.com URL. Availability (and therefore which slots appear blocked)
+   * is managed in the Cal.com dashboard, not here.
+   */
+  calLink: "lereve-az/consultation",
   facebookUrl: "https://www.facebook.com/lereve.az",
   instagramUrl: "https://www.instagram.com/lereve.az",
   tiktokUrl: "https://www.tiktok.com/@lereve.az",

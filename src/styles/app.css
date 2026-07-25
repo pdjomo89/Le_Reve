@@ -1560,6 +1560,40 @@
   animation: fadeUp 0.5s var(--ease);
 }
 
+.consult__step--calendar {
+  animation: fadeUp 0.5s var(--ease);
+}
+
+.consult__step--calendar h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  margin-bottom: 0.4rem;
+}
+
+.consult__cal-lede {
+  color: var(--text-soft);
+  margin-bottom: 1.4rem;
+}
+
+/* The Cal.com embed sizes itself; give it room and clip it to the card radius. */
+.booking-cal {
+  min-height: 640px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.booking-cal--fallback {
+  min-height: 0;
+  padding: 1.6rem;
+  background: var(--ivory);
+}
+
+@media (max-width: 700px) {
+  .booking-cal {
+    min-height: 520px;
+  }
+}
+
 .consult__step h2 {
   font-size: clamp(1.6rem, 3vw, 2.1rem);
   margin-bottom: 0.4rem;

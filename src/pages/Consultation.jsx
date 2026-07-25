@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
+import BookingCalendar from "../components/BookingCalendar.jsx";
 import PageHeader from "../components/PageHeader.jsx";
 import Reveal from "../components/Reveal.jsx";
 import Photo from "../components/Photo.jsx";
@@ -12,7 +13,10 @@ import {
   SERVICES,
 } from "../data/site.js";
 
-const STEPS = ["You two", "The day", "The details"];
+const STEPS = ["You two", "The day", "The details", "Pick a time"];
+
+/** Index of the booking-calendar step — the last one, after the enquiry answers. */
+const CALENDAR_STEP = STEPS.length - 1;
 
 const EMPTY = {
   partnerOne: "",
@@ -67,7 +71,24 @@ function Field({ label, name, error, children, hint }) {
   );
 }
 
-function Success({ form, onReset }) {
+/** Cal.com reports the chosen slot in a few shapes depending on event type. */
+function bookedWhen(booking) {
+  const raw = booking?.startTime ?? booking?.date ?? booking?.booking?.startTime;
+  if (!raw) return null;
+  const when = new Date(raw);
+  return Number.isNaN(when.getTime())
+    ? null
+    : when.toLocaleString(undefined, {
+        weekday: "long",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+      });
+}
+
+function Success({ form, booking, onReset }) {
+  const when = bookedWhen(booking);
   return (
     <Reveal className="consult-success">
       <span className="consult-success__mark" aria-hidden="true">
@@ -77,10 +98,17 @@ function Success({ form, onReset }) {
         Thank you, <em className="script">{form.partnerOne.split(" ")[0]}</em>
       </h2>
       <p className="lede">
-        Your enquiry is in. Camille personally reads every one and replies within one business
-        day — check {form.email} for a note from us.
+        {when
+          ? `Your consultation is confirmed for ${when}. It's in Camille's diary and a calendar invitation is on its way to ${form.email}.`
+          : `Your consultation is booked. Confirmation and calendar invitation are on their way to ${form.email}.`}
       </p>
       <div className="consult-success__recap">
+        {when && (
+          <div>
+            <span>Consultation</span>
+            <strong>{when}</strong>
+          </div>
+        )}
         <div>
           <span>Date</span>
           <strong>{form.date ? new Date(form.date).toDateString() : "Still deciding"}</strong>
@@ -115,6 +143,12 @@ export default function Consultation() {
   const [form, setForm] = useState(EMPTY);
   const [errors, setErrors] = useState({});
   const [sent, setSent] = useState(false);
+  const [booking, setBooking] = useState(null);
+
+  const handleBooked = useCallback((detail) => {
+    setBooking(detail);
+    setSent(true);
+  }, []);
 
   const update = (name, value) => {
     setForm((f) => ({ ...f, [name]: value }));
@@ -132,7 +166,7 @@ export default function Consultation() {
       setErrors(found);
       return;
     }
-    setStep((s) => Math.min(s + 1, STEPS.length - 1));
+    setStep((s) => Math.min(s + 1, CALENDAR_STEP - 1));
   };
 
   const back = () => setStep((s) => Math.max(s - 1, 0));
@@ -147,8 +181,9 @@ export default function Consultation() {
       setStep(bad === -1 ? step : bad);
       return;
     }
-    // No backend yet — this is where a POST to the booking service would go.
-    setSent(true);
+    // Answers are good — hand over to Cal.com to choose a slot. The booking
+    // itself (and blocking that slot) happens there, not here.
+    setStep(CALENDAR_STEP);
   };
 
   const reset = () => {
@@ -156,6 +191,7 @@ export default function Consultation() {
     setErrors({});
     setStep(0);
     setSent(false);
+    setBooking(null);
   };
 
   return (
@@ -172,7 +208,7 @@ export default function Consultation() {
         <div className="container consult__grid">
           <div className="consult__form-wrap">
             {sent ? (
-              <Success form={form} onReset={reset} />
+              <Success form={form} booking={booking} onReset={reset} />
             ) : (
               <Reveal>
                 <ol className="stepper" aria-label="Form progress">
@@ -190,6 +226,21 @@ export default function Consultation() {
                   ))}
                 </ol>
 
+                {step === CALENDAR_STEP ? (
+                  <div className="consult__form consult__step--calendar">
+                    <h2>Choose a time that suits</h2>
+                    <p className="consult__cal-lede">
+                      Every time shown is genuinely free in Camille's diary. Book one and it's
+                      blocked for everyone else immediately.
+                    </p>
+                    <BookingCalendar intake={form} onBooked={handleBooked} />
+                    <div className="consult__nav">
+                      <button type="button" className="btn btn--ghost" onClick={back}>
+                        Back
+                      </button>
+                    </div>
+                  </div>
+                ) : (
                 <form className="consult__form" onSubmit={onSubmit} noValidate>
                   {step === 0 && (
                     <div className="consult__step">
@@ -392,13 +443,13 @@ export default function Consultation() {
                         Back
                       </button>
                     )}
-                    {step < STEPS.length - 1 ? (
+                    {step < CALENDAR_STEP - 1 ? (
                       <button type="button" className="btn btn--primary" onClick={next}>
                         Continue
                       </button>
                     ) : (
                       <button type="submit" className="btn btn--gold">
-                        Send enquiry
+                        Choose a time
                       </button>
                     )}
                   </div>
@@ -408,6 +459,7 @@ export default function Consultation() {
                     without your say-so.
                   </p>
                 </form>
+                )}
               </Reveal>
             )}
           </div>
