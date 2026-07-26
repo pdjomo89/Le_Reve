@@ -1317,8 +1317,8 @@
   flex-direction: column;
   gap: 0.3rem;
   padding: 1.4rem 1.5rem;
-  background: var(--white);
-  border: 1px solid var(--line);
+  background: var(--gold-100);
+  border: 1px solid var(--turquoise-500);
   border-radius: var(--radius-sm);
 }
 
@@ -1326,7 +1326,8 @@
   font-size: 0.64rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold-600);
+  /* Darkest gold — gold-600 drops under 3.5:1 against the gold-100 card. */
+  color: var(--gold-700);
 }
 
 .about__contact a:hover {
@@ -1567,8 +1568,8 @@
 }
 
 .consult__form {
-  background: var(--white);
-  border: 1px solid var(--line);
+  background: var(--gold-100);
+  border: 1px solid var(--turquoise-500);
   border-radius: var(--radius);
   padding: clamp(1.8rem, 4vw, 3rem);
   box-shadow: var(--shadow-sm);
@@ -1677,8 +1678,8 @@
 }
 
 .consult__panel {
-  background: var(--white);
-  border: 1px solid var(--line);
+  background: var(--gold-100);
+  border: 1px solid var(--turquoise-500);
   border-radius: var(--radius);
   padding: 1.8rem 1.7rem;
 }
